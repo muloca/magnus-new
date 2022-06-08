@@ -1,18 +1,24 @@
 <?php
 
+use App\Http\Controllers\{
+    UsersController, 
+    IndexController,
+};
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+//Rotas de Usuários
+Route::get('/users', [UsersController::class, 'index'])->name('users.index');
+Route::get('users/create', [UsersController::class, 'create'])->name('users.create');
+Route::post('users/', [UsersController::class, 'storeUser'])->name('user.store');
+Route::get('/users/{id}', [UsersController::class, 'show'])->name('users.show'); //Sempre colocar em ordem sem parametro
+
+//Rotas Index
+Route::get('/home', [IndexController::class, 'index'])->name('home.index');
+
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+
