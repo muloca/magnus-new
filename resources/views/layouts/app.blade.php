@@ -12,7 +12,7 @@
 </head>
 <body>
     
-    <div class="app">
+    <div class="app px-20 pb-10">
         @yield('content')
     </div>
 

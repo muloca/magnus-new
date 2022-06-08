@@ -36,7 +36,9 @@ class StoreUpdateUsersFormRequest extends FormRequest
                 'required',
                 'min:6',
                 'max:15'
-            ]
+            ],
+            'cargo' => 'required|string|max:255|min:3',
+            'nivel' => 'required|string|max:255|min:3',
         ];
     }
 }

@@ -18,6 +18,8 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'Novo usuário',
             'email' => 'novo@gmail.com',
+            'cargo' => 'Diretora',
+            'nivel' => 'Full',
             'password' => bcrypt('cabate')
         ]);
     }
