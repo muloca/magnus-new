@@ -20,42 +20,77 @@
              <div>
                  <a href="{{ route('users.create') }}" class="flex justify-end">
                      <button type="button"
-                         class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                         class="inline-flex justify-center py-2 px-4 border 
+                         border-transparent shadow-sm text-sm font-medium 
+                         rounded-md text-white bg-indigo-600 hover:bg-indigo-700 
+                         focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                          Criar novo usuário
                      </button>
                  </a>
              </div>
+             <div>
+                 <form action="{{ route('users.index') }}" method="get" class="pt-5">
+                     <label for="search">Pesquisar usuário</label>
+                     <div class="grid grid-cols-3 gap-5">
+                         <div class="col-span-2">
+                     <input type="text" name="search" id="search"
+                         class="
+                form-control
+                w-full
+                 block
+                 px-3
+                 py-1.5
+                 text-base
+                 font-normal
+                 text-gray-700
+                 bg-white bg-clip-padding
+                 border border-solid border-gray-300
+                 rounded
+                 transition
+                 ease-in-out
+                 m-0
+                 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
+                </div>
+                 <button type="submit"
+                     class="
+                         rounded-md text-white bg-indigo-600 hover:bg-indigo-700 
+                         ">
+                     Pesquisar
+                 </button>
+                </div>
+             </form>
          </div>
+     </div>
 
-         @foreach ($users as $user)
-             <div class="border-t border-gray-200">
-                 <dl>
-                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                         <dt class="text-sm font-medium text-gray-500">Nome</dt>
-                         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ $user->name }}</dd>
-                     </div>
-                     <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                         <dt class="text-sm font-medium text-gray-500">Cargo</dt>
-                         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ $user->cargo }}</dd>
-                     </div>
-                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                         <dt class="text-sm font-medium text-gray-500">Email</dt>
-                         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ $user->email }}</dd>
-                     </div>
-                     <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                         <dt class="text-sm font-medium text-gray-500">Nível de acesso</dt>
-                         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ $user->nivel }}</dd>
-                     </div>
-                     <div class="bg-gray-500 flex justify-end pt-2 pr-3 pb-2">
-                         <a href="{{ route('users.show', $user->id) }}">
-                             <button type="button"
-                                 class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                 Editar Usuário
-                             </button>
-                         </a>
-                     </div>
-             </div>
-         @endforeach
+     @foreach ($users as $user)
+         <div class="border-t border-gray-200">
+             <dl>
+                 <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                     <dt class="text-sm font-medium text-gray-500">Nome</dt>
+                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ $user->name }}</dd>
+                 </div>
+                 <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                     <dt class="text-sm font-medium text-gray-500">Cargo</dt>
+                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ $user->cargo }}</dd>
+                 </div>
+                 <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                     <dt class="text-sm font-medium text-gray-500">Email</dt>
+                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ $user->email }}</dd>
+                 </div>
+                 <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                     <dt class="text-sm font-medium text-gray-500">Nível de acesso</dt>
+                     <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{{ $user->nivel }}</dd>
+                 </div>
+                 <div class="bg-gray-500 flex justify-end pt-2 pr-3 pb-2">
+                     <a href="{{ route('users.show', $user->id) }}">
+                         <button type="button"
+                             class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                             Editar Usuário
+                         </button>
+                     </a>
+                 </div>
+         </div>
+     @endforeach
      </div>
 
 

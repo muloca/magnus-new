@@ -23,22 +23,32 @@ class StoreUpdateUsersFormRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+        $id = $this->id ?? '';
 
-            //nullable se não for obrigatório
-            'name' => 'required|string|max:255|min:3',
-            'email' => [
-                'required',
-                'email',
-                'unique:users',
-            ],
-            'password' => [
-                'required',
+            $rules = [
+                'name' => 'required|string|max:255|min:3',
+                'email' => [
+                    'required',
+                    'email',
+                    "unique:users,email,{$id},id",
+                ],
+                'password' => [
+                    'required',
+                    'min:6',
+                    'max:15'
+                ],
+                'cargo' => 'required|string|max:255|min:3',
+                'nivel' => 'required|string|max:255|min:3',
+        ];
+
+        if ($this->method('PUT')) {
+            $rules['password'] = [
+                'nullable',
                 'min:6',
                 'max:15'
-            ],
-            'cargo' => 'required|string|max:255|min:3',
-            'nivel' => 'required|string|max:255|min:3',
-        ];
+            ];
+        }
+
+        return $rules;
     }
 }
