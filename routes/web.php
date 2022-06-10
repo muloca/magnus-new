@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 //Rotas de Usuários
+Route::delete('/users/{id}', [UsersController::class, 'deleteUser'])->name('users.deleteUser');
 Route::put('/users/{id}', [UsersController::class, 'updateUser'])->name('users.updateUser');
 Route::get('/users', [UsersController::class, 'index'])->name('users.index');
 Route::get('users/create', [UsersController::class, 'create'])->name('users.create');
