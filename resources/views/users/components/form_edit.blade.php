@@ -1,126 +1,27 @@
 <form action="{{ route('users.updateUser', $user->id) }}" method="post">
   @method('PUT')
   @csrf
-  <div class="mb-3 xl:w-96">
-    <label for="name" class="form-label inline-block mb-2 text-gray-700">Nome completo</label>
-    <input type="text" name="name" id="name" class="
-    form-control
-    block
-    w-full
-    px-3
-    py-1.5
-    text-base
-    font-normal
-    text-gray-700
-    bg-white bg-clip-padding
-    border border-solid border-gray-300
-    rounded
-    transition
-    ease-in-out
-    m-0
-    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
-  " value="{{ $user->name }}" />
+  <input type="hidden" name="_method" value="PUT">
+  <div class="form-group">
+    <label for="name">Nome completo</label>
+    <input type="text" name="name" class="form-control" id="name" placeholder="Nome completo" value="{{ $user->name }}">
   </div>
-
-  <div class="mb-3 xl:w-96">
-    <label for="email" class="form-label inline-block mb-2 text-gray-700">Email</label>
-    <input type="email" name="email" id="email" class="
-    form-control
-    block
-    w-full
-    px-3
-    py-1.5
-    text-base
-    font-normal
-    text-gray-700
-    bg-white bg-clip-padding
-    border border-solid border-gray-300
-    rounded
-    transition
-    ease-in-out
-    m-0
-    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
-  " value="{{ $user->email }}" />
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $user->email }}" placeholder="Email">
+    <small id="emailHelp" name class="form-text text-muted">Digite um email válido.</small>
   </div>
-
-  <div class="mb-3 xl:w-96">
-    <label for="cargo" class="form-label inline-block mb-2 text-gray-700">Cargo</label>
-    <input type="text" name="cargo" id="cargo" class="
-    form-control
-    block
-    w-full
-    px-3
-    py-1.5
-    text-base
-    font-normal
-    text-gray-700
-    bg-white bg-clip-padding
-    border border-solid border-gray-300
-    rounded
-    transition
-    ease-in-out
-    m-0
-    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
-  " value="{{ $user->cargo }}" />
+  <div class="form-group">
+    <label for="cargo">Cargo</label>
+    <input type="text" name="cargo" class="form-control" id="cargo" placeholder="Cargo" value="{{ $user->cargo }}">
   </div>
-
-  <div class="mb-3 xl:w-96">
-    <label for="nivel" class="form-label inline-block mb-2 text-gray-700">Nível de acesso</label>
-    <input type="text" name="nivel" id="nivel" class="
-    form-control
-    block
-    w-full
-    px-3
-    py-1.5
-    text-base
-    font-normal
-    text-gray-700
-    bg-white bg-clip-padding
-    border border-solid border-gray-300
-    rounded
-    transition
-    ease-in-out
-    m-0
-    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
-  " value="{{ $user->nivel }}" />
+  <div class="form-group">
+    <label for="nivel">Nível de acesso</label>
+    <input type="text" name="nivel" class="form-control" id="nivel" placeholder="Nível de acesso" value="{{ $user->nivel }}">
   </div>
-
-  <div class="mb-3 xl:w-96">
-    <label for="password" class="form-label inline-block mb-2 text-gray-700">Nível de acesso</label>
-    <input type="password" name="password" id="password" class="
-    form-control
-    block
-    w-full
-    px-3
-    py-1.5
-    text-base
-    font-normal
-    text-gray-700
-    bg-white bg-clip-padding
-    border border-solid border-gray-300
-    rounded
-    transition
-    ease-in-out
-    m-0
-    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
-  " placeholder="Digite uma senha para trocar a senha" />
+  <div class="form-group">
+    <label for="password">Senha</label>
+    <input type="password" autocomplete="off" autocapitalize="off" name="password" class="form-control" id="pssword" placeholder="Digite a nova senha se deseja mudar">
   </div>
-
-
-  <button type="submit" type="button" class="inline-flex justify-center py-2 px-4 border border-transparent 
-    shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 
-    hover:bg-indigo-700 focus:outline-none focus:ring-2 
-    focus:ring-offset-2 focus:ring-indigo-500">Atualizar
-    usuário</button>
-
-  <form action="{{ route('users.deleteUser', $user->id )}}">
-    @csrf
-    <input type="hidden" name="_method" value="DELETE">
-    <button type="submit" type="button" class="inline-flex justify-center py-2 px-4 border border-transparent 
-    shadow-sm text-sm font-medium rounded-md text-white bg-red-600 
-    hover:bg-red-700 focus:outline-none focus:ring-2 
-    focus:ring-offset-2 focus:ring-indigo-500">
-      Deletar usuário
-    </button>
-  </form>
+  <button type="submit" class="btn btn-info">Atualizar usuário</button>
 </form>

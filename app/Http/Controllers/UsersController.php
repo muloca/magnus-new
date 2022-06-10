@@ -51,6 +51,7 @@ class UsersController extends Controller
         $data = $request->all();
         $data['password'] = bcrypt($request->password);
 
+        
         User::create($data);
 
         return redirect()->route('users.index');
@@ -70,14 +71,13 @@ class UsersController extends Controller
     {
 
         if(!$user = User::find($id))
-            return redirect()->route('user.index');
+            return redirect()->route('users.index');
 
         $data = $request->only('name', 'email', 'cargo', 'nivel');
 
         if($request->password)
             $data['password'] = bcrypt($request->password);
 
-        
 
         $user->update($data);
 
