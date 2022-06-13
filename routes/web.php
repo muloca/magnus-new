@@ -22,5 +22,3 @@ Route::get('/home', [IndexController::class, 'index'])->name('home.index');
 Route::get('/', function () {
     return view('welcome');
 });
-
-

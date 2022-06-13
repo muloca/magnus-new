@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Magnus educação</a>
+  <a class="navbar-brand" href="{{ route('home.index') }}">Magnus educação</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -53,10 +53,10 @@
     </ul>
     <ul class="navbar-nav form-inline my-2 my-lg-0">
     <li class="nav-item">
-        <a class="nav-link" href="#">Aluno Magnus</a>
+        <a class="nav-link" href="https://ead.magnuseducacao.com.br" target="_blank">Aluno Magnus</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Agende uma visita</a>
+        <a class="nav-link" href="https://wa.me/+5543991800458?text=Eu%20gostaria%20de%20agendar%20uma%20visita." target="_blank">Agende uma visita</a>
       </li>
     </ul>
   </div>
