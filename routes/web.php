@@ -15,7 +15,7 @@ Route::get('/users/create', [UsersController::class, 'create'])->name('users.cre
 Route::post('/users/store', [UsersController::class, 'storeUser'])->name('user.store');
 Route::get('/users/{id}/show', [UsersController::class, 'show'])->name('users.show'); //Sempre colocar em ordem sem parametro
 
-//Rotas Index
+//Rotas FrontEnd
 Route::get('/home', [IndexController::class, 'index'])->name('home.index');
 
 
