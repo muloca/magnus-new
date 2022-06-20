@@ -25,7 +25,7 @@ class UsersController extends Controller
         
         //dd($user);
 
-        return view('users.index_users', compact('users'));
+        return view('users/index_users', compact('users'));
     }
     
     public function show($id)
@@ -36,7 +36,7 @@ class UsersController extends Controller
             return redirect()->route('users.index');
         }
         
-        return view('users.show', compact('user'));
+        return view('users/show', compact('user'));
         //dd($user);
     }
 
@@ -54,7 +54,7 @@ class UsersController extends Controller
         
         User::create($data);
 
-        return redirect()->route('users.index');
+        return redirect()->route('users/index');
 
         // $user = User::create($request->all($data));
 
@@ -71,7 +71,7 @@ class UsersController extends Controller
     {
 
         if(!$user = User::find($id))
-            return redirect()->route('users.index');
+            return redirect()->route('users/index');
 
         $data = $request->only('name', 'email', 'cargo', 'nivel');
 
@@ -81,17 +81,17 @@ class UsersController extends Controller
 
         $user->update($data);
 
-        return redirect()->route('users.index');
+        return redirect()->route('users/index');
     }
 
     public function deleteUser($id)
     {
         if(!$user = User::find($id))
-        return redirect()->route('users.index');
+        return redirect()->route('users/index');
 
         $user->delete($id);
 
-        return redirect()->route('users.index');
+        return redirect()->route('users/index');
     }
     
 }

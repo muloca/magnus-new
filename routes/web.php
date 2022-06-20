@@ -3,6 +3,7 @@
 use App\Http\Controllers\{
     UsersController, 
     IndexController,
+    DashboardController
 };
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -16,9 +17,12 @@ Route::post('/users/store', [UsersController::class, 'storeUser'])->name('user.s
 Route::get('/users/{id}/show', [UsersController::class, 'show'])->name('users.show'); //Sempre colocar em ordem sem parametro
 
 //Rotas FrontEnd
-Route::get('/home', [IndexController::class, 'index'])->name('home.index');
+Route::get('/', [IndexController::class, 'index'])->name('home.index');
+
+//Rotas Dashboard
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
