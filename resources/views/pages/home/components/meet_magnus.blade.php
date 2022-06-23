@@ -10,8 +10,14 @@
 
     
 <div class="col-12 col-sm-12 col-md-12 col-lg-6 pt-3">
-<div class="embed-responsive embed-responsive-16by9">
-  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/kiYksKwbAi4" allowfullscreen></iframe>
-</div>
+  <sl-responsive-media aspect-ratio="16:9">
+    <iframe
+      title="Conheça o Magnus"
+      src="https://www.youtube.com/embed/kiYksKwbAi4"
+      frameborder="0"
+      allow="autoplay; fullscreen"
+      allowfullscreen
+    ></iframe>
+  </sl-responsive-media>
 </div>
 </div>

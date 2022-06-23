@@ -9,23 +9,22 @@ use Illuminate\Http\Request;
 class UsersController extends Controller
 {
     public function index(Request $request)
-    {
-
-        // dd($request->search);
+    { 
         $search = $request->search;
 
         $users = User::where(function ($query) use ($search){
             if($search){
                 $query->where('email', 'LIKE', "%{$search}%");
-                $query->orWhere('name', $search);
-                $query->orWhere('cargo', $search);
-                $query->orWhere('nivel', $search);
+                $query->orWhere('name', 'LIKE', "%{$search}%");
+                $query->orWhere('cargo', 'LIKE', "%{$search}%");
+                $query->orWhere('nivel', 'LIKE', "%{$search}%");
             }
         })->get(); //nunca esquecer do GET
+        //dd($request->search);
         
         //dd($user);
 
-        return view('users/index_users', compact('users'));
+        return view('users.index_users', compact('users'));
     }
     
     public function show($id)
@@ -36,7 +35,7 @@ class UsersController extends Controller
             return redirect()->route('users.index');
         }
         
-        return view('users/show', compact('user'));
+        return view('users.show', compact('user'));
         //dd($user);
     }
 
@@ -54,7 +53,7 @@ class UsersController extends Controller
         
         User::create($data);
 
-        return redirect()->route('users/index');
+        return redirect()->route('users.index');
 
         // $user = User::create($request->all($data));
 
@@ -71,7 +70,7 @@ class UsersController extends Controller
     {
 
         if(!$user = User::find($id))
-            return redirect()->route('users/index');
+            return redirect()->route('users.index');
 
         $data = $request->only('name', 'email', 'cargo', 'nivel');
 
@@ -81,17 +80,17 @@ class UsersController extends Controller
 
         $user->update($data);
 
-        return redirect()->route('users/index');
+        return redirect()->route('users.index');
     }
 
     public function deleteUser($id)
     {
         if(!$user = User::find($id))
-        return redirect()->route('users/index');
+        return redirect()->route('users.index');
 
         $user->delete($id);
 
-        return redirect()->route('users/index');
+        return redirect()->route('users.index');
     }
     
 }
